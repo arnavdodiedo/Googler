@@ -1,8 +1,10 @@
 package com.google.firebase.samples.apps.mlkit.googler.java;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityCompat.OnRequestPermissionsResultCallback;
@@ -27,6 +29,8 @@ import com.google.firebase.samples.apps.mlkit.googler.java.imagelabeling.ImageLa
 import com.google.firebase.samples.apps.mlkit.googler.java.imagelabeling.LabelGraphic;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,6 +73,36 @@ public final class LivePreviewActivity extends AppCompatActivity
 
     leftButton = (Button) findViewById(R.id.searchButtonLeft);
     rightButton = (Button) findViewById(R.id.searchButtonRight);
+
+    leftButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            String queryL = leftButton.getText().toString();
+            try {
+                String searchleft = URLEncoder.encode(queryL, "UTF-8");
+                Uri uri = Uri.parse("http://www.google.com/#q=" + searchleft);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+        }
+    });
+
+    rightButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            String queryR = rightButton.getText().toString();
+            try {
+                String searchRight = URLEncoder.encode(queryR, "UTF-8");
+                Uri uri = Uri.parse("http://www.google.com/#q=" + searchRight);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+        }
+    });
 
 /*    Spinner spinner = (Spinner) findViewById(R.id.spinner);
     List<String> options = new ArrayList<>();

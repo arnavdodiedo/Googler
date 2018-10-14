@@ -12,17 +12,17 @@
     <com.google.firebase.samples.apps.mlkit.googler.common.CameraSourcePreview
         android:id="@+id/firePreview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true">
 
         <com.google.firebase.samples.apps.mlkit.googler.common.GraphicOverlay
             android:id="@+id/fireFaceOverlay"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"/>
+            android:layout_alignParentTop="true" />
     </com.google.firebase.samples.apps.mlkit.googler.common.CameraSourcePreview>
 
     <TextView android:id="@+id/text"
@@ -36,7 +36,7 @@
     <FrameLayout
         android:id="@+id/control"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:background="#000">
@@ -53,6 +53,7 @@
             android:layout_width="120dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
+            android:background="@drawable/rounded_button"
             android:text="Button" />
 
         <Button
@@ -61,6 +62,7 @@
             android:layout_width="120dp"
             android:layout_height="60dp"
             android:layout_gravity="right"
+            android:background="@drawable/rounded_button"
             android:text="Button" />
 
         <ToggleButton

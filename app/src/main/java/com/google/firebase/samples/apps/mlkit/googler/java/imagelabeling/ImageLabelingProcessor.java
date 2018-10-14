@@ -44,6 +44,7 @@ public class ImageLabelingProcessor extends VisionProcessorBase<List<FirebaseVis
 
   public ImageLabelingProcessor() {
     detector = FirebaseVision.getInstance().getVisionLabelDetector();
+
   }
 
   @Override
@@ -74,7 +75,8 @@ public class ImageLabelingProcessor extends VisionProcessorBase<List<FirebaseVis
             LabelGraphic.left = labels.get(i).getLabel();
         else if (i==1)
             LabelGraphic.right = labels.get(i).getLabel();
-        System.out.println(labels.get(i).getLabel());
+
+        //System.out.println(labels.get(i).getLabel());
     }
     LivePreviewActivity.leftButton.setText(LabelGraphic.left);
     LivePreviewActivity.rightButton.setText(LabelGraphic.right);
