@@ -54,6 +54,8 @@ public final class LivePreviewActivity extends AppCompatActivity
 
   public static Button leftButton;
   public static Button rightButton;
+  public static Button topButton;
+  public static Button bottomButton;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +75,8 @@ public final class LivePreviewActivity extends AppCompatActivity
 
     leftButton = (Button) findViewById(R.id.searchButtonLeft);
     rightButton = (Button) findViewById(R.id.searchButtonRight);
+    topButton = (Button) findViewById(R.id.searchButtonTop);
+    bottomButton = (Button) findViewById(R.id.searchButtonBottom);
 
     leftButton.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -103,6 +107,36 @@ public final class LivePreviewActivity extends AppCompatActivity
             }
         }
     });
+
+      topButton.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              String queryT = topButton.getText().toString();
+              try {
+                  String searchTop = URLEncoder.encode(queryT, "UTF-8");
+                  Uri uri = Uri.parse("http://www.google.com/#q=" + searchTop);
+                  Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                  startActivity(intent);
+              } catch (UnsupportedEncodingException e) {
+                  e.printStackTrace();
+              }
+          }
+      });
+
+      bottomButton.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              String queryB = bottomButton.getText().toString();
+              try {
+                  String searchBottom = URLEncoder.encode(queryB, "UTF-8");
+                  Uri uri = Uri.parse("http://www.google.com/#q=" + searchBottom);
+                  Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                  startActivity(intent);
+              } catch (UnsupportedEncodingException e) {
+                  e.printStackTrace();
+              }
+          }
+      });
 
 /*    Spinner spinner = (Spinner) findViewById(R.id.spinner);
     List<String> options = new ArrayList<>();

@@ -29,7 +29,7 @@ public class LabelGraphic extends Graphic {
 
   private final Paint textPaint;
   private final GraphicOverlay overlay;
-  public static String left, right;
+  public static String left, right, top, bottom;
   private final List<FirebaseVisionLabel> labels;
 
   LabelGraphic(GraphicOverlay overlay, List<FirebaseVisionLabel> labels) {
@@ -52,6 +52,10 @@ public class LabelGraphic extends Graphic {
           left = label.getLabel();
       else if(i==1)
           right = label.getLabel();
+      else if(i==2)
+        top = label.getLabel();
+      else if(i==3)
+        bottom = label.getLabel();
       canvas.drawText(label.getLabel(), x, y, textPaint);
       y = y - 62.0f;
       i++;

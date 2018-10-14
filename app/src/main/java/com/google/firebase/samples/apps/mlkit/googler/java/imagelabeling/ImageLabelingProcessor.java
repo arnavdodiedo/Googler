@@ -70,16 +70,22 @@ public class ImageLabelingProcessor extends VisionProcessorBase<List<FirebaseVis
     LabelGraphic labelGraphic = new LabelGraphic(graphicOverlay, labels);
     graphicOverlay.add(labelGraphic);
 
-    for(int i=0; i<labels.size() && labels.size()>=2; i++){
+    for(int i=0; i<labels.size() && labels.size()>=4; i++){
         if(i==0)
             LabelGraphic.left = labels.get(i).getLabel();
         else if (i==1)
             LabelGraphic.right = labels.get(i).getLabel();
+        else if (i==2)
+            LabelGraphic.top = labels.get(i).getLabel();
+        else if (i==3)
+            LabelGraphic.bottom = labels.get(i).getLabel();
 
         //System.out.println(labels.get(i).getLabel());
     }
     LivePreviewActivity.leftButton.setText(LabelGraphic.left);
     LivePreviewActivity.rightButton.setText(LabelGraphic.right);
+    LivePreviewActivity.topButton.setText(LabelGraphic.top);
+    LivePreviewActivity.bottomButton.setText(LabelGraphic.bottom);
   }
 
   @Override
