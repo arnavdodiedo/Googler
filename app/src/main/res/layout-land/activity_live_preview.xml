@@ -65,7 +65,7 @@
           android:id="@+id/searchButtonBottom"
           android:layout_width="120dp"
           android:layout_height="60dp"
-          android:layout_marginTop="235dp"
+          android:layout_marginTop="255dp"
           android:layout_marginHorizontal="60dp"
           android:background="@drawable/rounded_button"
           android:text="Button"
